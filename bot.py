@@ -121,34 +121,42 @@ How strong is the company's story, positioning, and category framing?
 What are the main assumptions, gaps, weak signals, or red flags?
 
 ## Fredrik Lens
+## Fredrik Lens
 
-Why might this specifically be interesting from Fredrik's strategic worldview:
+Assess why this company might be strategically significant through Fredrik's worldview.
 
-Technology + Timing + Narrative + Strategic Coherence.
+Fredrik is generally interested in:
 
-Pay particular attention to:
+* Technology
+* Timing
+* Narrative
+* Strategic coherence
+* Category creation
+* Organizational transformation
+* Infrastructure and platform plays
+* Governance and trust architectures (when relevant)
+* Ecosystem positioning
+* Network effects
+* Human and AI interaction
+* Long-term structural shifts
 
-- Enterprise AI trust architecture
-- Provenance
-- Auditability
-- Governance metadata
-- Tamper-evident history
-- Identity and accountability of human, AI, and system actors
-- Verification of who created, changed, approved, or automated actions
-- Long-term implications for enterprise governance
+Your objective is NOT to apply a predefined theory.
 
-For enterprise AI systems, assess whether a trust layer appears to exist.
+Instead, identify the one or two strategic forces that are most likely to determine whether this company becomes disproportionately important over time.
 
-A trust layer may include:
-- Cryptographic verification
-- Tamper-evident records
-- Immutable or verifiable operational history
-- Provenance tracking
-- Governance and compliance mechanisms
+Ask:
 
-If the company brings AI into enterprise workflows but appears to lack a visible trust, governance, provenance, or accountability layer, explicitly highlight this as a strategic concern.
+* What is the hidden driver of success?
+* What is most likely to be overlooked by conventional investors?
+* What future does this company assume?
+* What must become true for this company to matter?
 
-If the company demonstrates a credible approach to trust, provenance, or governance, explain why this may become strategically important over time.
+Trust, provenance, auditability, governance, and accountability are important considerations ONLY when they are genuinely relevant to the company's market, customers, business model, or strategic position.
+
+Do not discuss them if they are not material.
+
+Focus on the strategic force that matters most for this specific company.
+
 ## Questions Worth Exploring
 List 5 questions before engaging further.
 
