@@ -98,70 +98,163 @@ async def analyze_url(channel, url):
 Analyze this company based only on the website text below.
 URL:
 {url}
-
 Website text:
 {site_text}
 
-Produce a Strategic Investment Council MVP report with this structure:
+You are the Strategic Investment Council.
+
+The objective is NOT to merely summarize the company.
+
+The objective is to identify the few variables that will determine whether this company becomes strategically important.
+
+Focus on judgment, not coverage.
+
+Avoid generic startup analysis, MBA language, and feature summaries.
+
+Each council member must contribute a distinct perspective.
+
+Keep the report concise, insightful, and high-signal.
+
+Use the following structure:
 
 # Strategic Investment Council
 
 ## Company Summary
-What does the company appear to do?
 
-## Technology View
-Does the technology appear meaningful, differentiated, scalable, or strategically relevant?
+In 3-5 sentences:
 
-## Timing View
-Why now? What broader shifts might make this company more or less relevant?
+- What does the company appear to do?
+- Who appears to be the customer?
+- What problem appears to be solved?
 
-## Narrative View
-How strong is the company's story, positioning, and category framing?
+Do not repeat this information later.
 
-## Skeptic View
-What are the main assumptions, gaps, weak signals, or red flags?
+---
 
-## Fredrik Lens
-## Fredrik Lens
-
-Assess why this company might be strategically significant through Fredrik's worldview.
-
-Fredrik is generally interested in:
-
-* Technology
-* Timing
-* Narrative
-* Strategic coherence
-* Category creation
-* Organizational transformation
-* Infrastructure and platform plays
-* Governance and trust architectures (when relevant)
-* Ecosystem positioning
-* Network effects
-* Human and AI interaction
-* Long-term structural shifts
-
-Your objective is NOT to apply a predefined theory.
-
-Instead, identify the one or two strategic forces that are most likely to determine whether this company becomes disproportionately important over time.
+## Founder View
 
 Ask:
 
-* What is the hidden driver of success?
-* What is most likely to be overlooked by conventional investors?
-* What future does this company assume?
-* What must become true for this company to matter?
+- Why might this team be uniquely positioned to win?
+- What founder insight or experience may have led to this company?
+- Is there evidence of founder-market fit?
 
-Trust, provenance, auditability, governance, and accountability are important considerations ONLY when they are genuinely relevant to the company's market, customers, business model, or strategic position.
+If information is limited, state what would need to be true.
 
-Do not discuss them if they are not material.
+Focus on founder advantage, not biography.
+
+---
+
+## Market View
+
+Ask:
+
+- Why now?
+- What broader structural shifts make this company more relevant?
+- Is demand being pulled by the market, or pushed by the company?
+- If successful, how large could the opportunity become?
+
+Focus on timing and market inevitability.
+
+---
+
+## Platform View
+
+Ask:
+
+- Where does defensibility come from?
+- What becomes stronger as the company grows?
+- Are there network effects, ecosystem effects, switching costs, proprietary data, infrastructure advantages, or platform dynamics?
+- Where does power accumulate?
+
+Do not focus on features.
+
+Focus on moats and strategic leverage.
+
+---
+
+## Skeptic View
+
+Do NOT provide a list of generic risks.
+
+Identify the single assumption most likely to be wrong.
+
+Ask:
+
+"What must be true for this company to succeed?"
+
+Then challenge that assumption directly.
+
+Be sharp, specific, and intellectually honest.
+
+---
+
+## Fredrik Lens
+
+Assess why this company might become strategically significant.
+
+Fredrik is generally interested in:
+
+- Technology
+- Narrative
+- Category creation
+- Strategic coherence
+- Platform and infrastructure plays
+- Ecosystem positioning
+- Network effects
+- Human and AI interaction
+- Organizational transformation
+- Long-term structural shifts
+- Governance and trust architectures (ONLY when materially relevant)
+
+Do NOT apply a predefined theory.
+
+Instead identify the one or two strategic forces that matter most.
+
+Ask:
+
+- What is the hidden driver of success?
+- What are conventional investors likely to miss?
+- What future does this company assume?
+- What must become true for this company to matter?
+- Is this a category participant, category leader, category creator, or infrastructure layer?
+
+Trust, provenance, auditability, governance, and accountability should ONLY be discussed when they are genuinely relevant to the company's future success.
+
+Do not force them into the analysis.
 
 Focus on the strategic force that matters most for this specific company.
 
-## Questions Worth Exploring
-List 5 questions before engaging further.
+---
+
+## Investment Question
+
+What is the single most important unanswered question that would most improve judgment?
+
+Only one question.
+
+Choose the question with the highest information value.
+
+---
+
+## Verdict
+
+Maximum 3 sentences.
+
+Format:
+
+Interesting if:
+...
+
+Uninteresting if:
+...
+
+One sentence on what the company is ultimately betting on.
+
+---
 
 End with:
+
 "The objective is not confirmation. The objective is better judgment."
 """
 
