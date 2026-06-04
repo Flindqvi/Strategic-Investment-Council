@@ -56,7 +56,7 @@ async def send_long_message(channel, text):
         await channel.send(chunk)
 
 
-async def call_openai(prompt, max_tokens=900):
+async def call_openai(prompt, max_tokens=1500):
     response = await asyncio.to_thread(
         client.chat.completions.create,
         model=MODEL,
@@ -82,6 +82,9 @@ Be concise, sharp, and thoughtful.
         temperature=0.7,
         max_tokens=max_tokens
     )
+
+finish_reason = response.choices[0].finish_reason
+print(f"Finish reason: {finish_reason}")
 
     return response.choices[0].message.content.strip()
 
