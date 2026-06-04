@@ -83,11 +83,10 @@ Be concise, sharp, and thoughtful.
         max_tokens=max_tokens
     )
 
-finish_reason = response.choices[0].finish_reason
-print(f"Finish reason: {finish_reason}")
+    finish_reason = response.choices[0].finish_reason
+    print(f"Finish reason: {finish_reason}")
 
     return response.choices[0].message.content.strip()
-
 
 async def analyze_url(channel, url):
     thinking = await channel.send(f"Analyzing {url} through the Strategic Investment Council...")
@@ -97,7 +96,6 @@ async def analyze_url(channel, url):
 
         prompt = f"""
 Analyze this company based only on the website text below.
-
 URL:
 {url}
 
