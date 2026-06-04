@@ -98,18 +98,19 @@ async def analyze_url(channel, url):
 Analyze this company based only on the website text below.
 URL:
 {url}
+
 Website text:
 {site_text}
 
 You are the Strategic Investment Council.
 
-The objective is NOT to merely summarize the company.
+The objective is NOT merely to summarize the company.
 
 The objective is to identify the few variables that will determine whether this company becomes strategically important.
 
 Focus on judgment, not coverage.
 
-Avoid generic startup analysis, MBA language, and feature summaries.
+Avoid generic startup analysis, MBA language, feature summaries, and long lists.
 
 Each council member must contribute a distinct perspective.
 
@@ -131,30 +132,29 @@ Do not repeat this information later.
 
 ---
 
-## Founder View
+## Origin Insight
 
 Ask:
 
-- Why might this team be uniquely positioned to win?
-- What founder insight or experience may have led to this company?
-- Is there evidence of founder-market fit?
+- What non-obvious insight may have led to this company?
+- What frustration, inefficiency, contradiction, or market gap does the company appear to have noticed?
+- What might the founders understand that others overlook?
 
-If information is limited, state what would need to be true.
+Do not discuss founder biographies.
 
-Focus on founder advantage, not biography.
+Focus on the underlying insight that gave rise to the company.
 
 ---
 
-## Market View
+## Timing View
 
 Ask:
 
 - Why now?
-- What broader structural shifts make this company more relevant?
-- Is demand being pulled by the market, or pushed by the company?
-- If successful, how large could the opportunity become?
+- What structural shifts make this company more relevant today than five years ago?
+- What trends, technologies, regulations, behaviors, or market changes are creating the opportunity?
 
-Focus on timing and market inevitability.
+Focus on timing, not market size.
 
 ---
 
@@ -162,20 +162,20 @@ Focus on timing and market inevitability.
 
 Ask:
 
-- Where does defensibility come from?
-- What becomes stronger as the company grows?
-- Are there network effects, ecosystem effects, switching costs, proprietary data, infrastructure advantages, or platform dynamics?
 - Where does power accumulate?
+- What becomes stronger as the company grows?
+- Are there network effects, ecosystem effects, switching costs, proprietary data, workflow lock-in, infrastructure advantages, or platform dynamics?
+- What could become difficult for competitors to replicate?
 
 Do not focus on features.
 
-Focus on moats and strategic leverage.
+Focus on leverage, defensibility, and strategic position.
 
 ---
 
 ## Skeptic View
 
-Do NOT provide a list of generic risks.
+Do NOT provide generic risks.
 
 Identify the single assumption most likely to be wrong.
 
@@ -185,7 +185,9 @@ Ask:
 
 Then challenge that assumption directly.
 
-Be sharp, specific, and intellectually honest.
+Be specific.
+
+Be intellectually honest.
 
 ---
 
@@ -196,6 +198,7 @@ Assess why this company might become strategically significant.
 Fredrik is generally interested in:
 
 - Technology
+- Timing
 - Narrative
 - Category creation
 - Strategic coherence
@@ -207,9 +210,11 @@ Fredrik is generally interested in:
 - Long-term structural shifts
 - Governance and trust architectures (ONLY when materially relevant)
 
-Do NOT apply a predefined theory.
+Do NOT apply a predefined theory. 
 
 Instead identify the one or two strategic forces that matter most.
+
+Prefer identifying a hidden strategic variable over describing the company.
 
 Ask:
 
@@ -217,9 +222,10 @@ Ask:
 - What are conventional investors likely to miss?
 - What future does this company assume?
 - What must become true for this company to matter?
+- What narrative could make this company disproportionately important?
 - Is this a category participant, category leader, category creator, or infrastructure layer?
 
-Trust, provenance, auditability, governance, and accountability should ONLY be discussed when they are genuinely relevant to the company's future success.
+Trust, provenance, auditability, governance, and accountability should ONLY be discussed when genuinely relevant to the company's future success.
 
 Do not force them into the analysis.
 
@@ -249,13 +255,15 @@ Interesting if:
 Uninteresting if:
 ...
 
-One sentence on what the company is ultimately betting on.
+Ultimately this company is betting on:
+...
 
 ---
 
 End with:
 
 "The objective is not confirmation. The objective is better judgment."
+
 """
 
         report = await call_openai(prompt)
