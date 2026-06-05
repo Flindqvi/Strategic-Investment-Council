@@ -203,9 +203,11 @@ async def analyze_url(channel, url):
     thinking = await channel.send(f"Analyzing {url} through the Strategic Investment Council...")
 
     try:
-site_text = await asyncio.to_thread(fetch_best_website_text, url)
-external_context = await asyncio.to_thread(research_company, url)
+        site_text = await asyncio.to_thread(fetch_best_website_text, url)
+        external_context = await asyncio.to_thread(research_company, url)
+
         prompt = f"""
+
 Analyze this company based only on the website text below.
 URL:
 {url}
@@ -443,7 +445,7 @@ End with:
 "The objective is not confirmation. The objective is better judgment."
 """
 
-        report = await call_openai(prompt)
+    report = await call_openai(prompt)
 
         await thinking.delete()
         await send_long_message(channel, report)
