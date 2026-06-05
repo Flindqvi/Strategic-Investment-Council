@@ -103,30 +103,32 @@ Website text:
 {site_text}
 Before beginning the analysis:
 
-Ground yourself in the available evidence.
+Before beginning the analysis:
 
-First determine:
+Determine whether the available information is sufficient to identify:
 
 - Industry
 - Customer
 - Product
 
-based only on information directly observable from the website.
+with reasonable confidence.
 
-Then assess the quality of the available evidence.
+If confidence is reasonably high:
 
-Use the following scale:
+- Proceed directly to the Strategic Investment Council analysis.
+- Do not mention confidence levels, evidence quality, or observations.
 
-High:
-The website provides sufficient information to form strategic judgments with reasonable confidence.
+If confidence is low:
 
-Medium:
-The website provides some information, but important assumptions remain.
+- Before the Strategic Investment Council analysis, include:
 
-Low:
-The website provides insufficient information. Strategic conclusions should be treated as hypotheses rather than observations.
+## Limited Information Warning
 
-Rules:
+Briefly explain why the available information is insufficient.
+
+## Observed Facts
+
+List 3-5 concrete observations directly supported by the website.
 
 - Do not infer industry from company names, domain names, acronyms, abbreviations, or branding alone.
 - Do not assume a business model, customer, market, or technology that is not supported by evidence.
@@ -134,17 +136,12 @@ Rules:
 - Prefer uncertainty over incorrect specificity.
 - Every major strategic conclusion should be traceable to evidence found on the website.
 
-Include the following sections before the Strategic Investment Council analysis:
+If confidence is low:
 
-## Evidence Quality
-
-High / Medium / Low
-
-## Observed Facts
-
-List 3-5 concrete observations directly supported by the website.
-
-These observations should serve as the factual foundation for the remainder of the analysis.
+- Reduce the level of strategic speculation.
+- Frame conclusions as hypotheses rather than observations.
+- Focus on uncertainty reduction.
+- The Investment Question should prioritize resolving the key uncertainty.
 
 You are the Strategic Investment Council.
 
