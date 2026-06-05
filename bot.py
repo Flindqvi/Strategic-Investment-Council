@@ -60,11 +60,21 @@ def tinyfish_get(endpoint, params):
     return response.json()
 
 def extract_text_from_tinyfish_response(data):
+    if isinstance(data, list) and data:
+        data = data[0]
+
     if isinstance(data, dict):
         for key in ["markdown", "text", "content", "result"]:
             value = data.get(key)
+
             if isinstance(value, str) and value.strip():
                 return value.strip()
+
+            if isinstance(value, list) and value:
+                return extract_text_from_tinyfish_response(value)
+
+            if isinstance(value, dict):
+                return extract_text_from_tinyfish_response(value)
 
         for value in data.values():
             if isinstance(value, str) and len(value) > 200:
@@ -72,12 +82,27 @@ def extract_text_from_tinyfish_response(data):
 
     return str(data)[:MAX_SITE_CHARS]
 
-
 def tinyfish_fetch_text(url):
-    data = tinyfish_get(
+    if not TINYFISH_API_KEY:
+        raise RuntimeError("TINYFISH_API_KEY is not set")
+
+    headers = {
+        "X-API-Key": TINYFISH_API_KEY,
+        "Content-Type": "application/json"
+    }
+
+    response = requests.post(
         "https://api.fetch.tinyfish.ai",
-        {"url": url}
+        json={
+            "urls": [url],
+            "format": "markdown"
+        },
+        headers=headers,
+        timeout=150
     )
+
+    response.raise_for_status()
+    data = response.json()
 
     return extract_text_from_tinyfish_response(data)[:MAX_SITE_CHARS]
 
