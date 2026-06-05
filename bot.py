@@ -47,18 +47,17 @@ def fetch_website_text(url):
     text = " ".join(soup.get_text(separator=" ").split())
     return text[:MAX_SITE_CHARS]
 
-def tinyfish_post(endpoint, payload):
+def tinyfish_get(endpoint, params):
     if not TINYFISH_API_KEY:
         raise RuntimeError("TINYFISH_API_KEY is not set")
+
     headers = {
-        "X-API-Key": TINYFISH_API_KEY,
-        "Content-Type": "application/json"
+        "X-API-Key": TINYFISH_API_KEY
     }
 
-    response = requests.post(endpoint, json=payload, headers=headers, timeout=20)
+    response = requests.get(endpoint, params=params, headers=headers, timeout=20)
     response.raise_for_status()
     return response.json()
-
 
 def extract_text_from_tinyfish_response(data):
     if isinstance(data, dict):
@@ -75,13 +74,12 @@ def extract_text_from_tinyfish_response(data):
 
 
 def tinyfish_fetch_text(url):
-    data = tinyfish_post(
+    data = tinyfish_get(
         "https://api.fetch.tinyfish.ai",
-        {"url": url, "format": "markdown"}
+        {"url": url}
     )
 
     return extract_text_from_tinyfish_response(data)[:MAX_SITE_CHARS]
-
 
 def fetch_best_website_text(url):
     try:
@@ -117,13 +115,12 @@ def extract_search_results(data, limit=3):
 
 
 def tinyfish_search(query, limit=3):
-    data = tinyfish_post(
+    data = tinyfish_get(
         "https://api.search.tinyfish.ai",
-        {"query": query, "limit": limit}
+        {"query": query}
     )
 
     return extract_search_results(data, limit=limit)
-
 
 def get_company_hint(url):
     domain = re.sub(r"^https?://", "", url)
