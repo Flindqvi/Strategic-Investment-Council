@@ -50,9 +50,8 @@ def fetch_website_text(url):
 def tinyfish_post(endpoint, payload):
     if not TINYFISH_API_KEY:
         raise RuntimeError("TINYFISH_API_KEY is not set")
-
     headers = {
-        "Authorization": f"Bearer {TINYFISH_API_KEY}",
+        "X-API-Key": TINYFISH_API_KEY,
         "Content-Type": "application/json"
     }
 
