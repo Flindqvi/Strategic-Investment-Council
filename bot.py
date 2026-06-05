@@ -12,6 +12,7 @@ load_dotenv()
 
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+TINYFISH_API_KEY = os.getenv("TINYFISH_API_KEY")
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -23,7 +24,7 @@ bot = commands.Bot(command_prefix="/", intents=intents)
 MODEL = "gpt-4.1-mini"
 MAX_CHUNK = 1800
 MAX_SITE_CHARS = 12000
-
+MAX_EXTERNAL_CHARS = 6000
 
 def extract_url(text):
     match = re.search(r"https?://\S+", text)
@@ -46,6 +47,116 @@ def fetch_website_text(url):
     text = " ".join(soup.get_text(separator=" ").split())
     return text[:MAX_SITE_CHARS]
 
+def tinyfish_post(endpoint, payload):
+    if not TINYFISH_API_KEY:
+        raise RuntimeError("TINYFISH_API_KEY is not set")
+
+    headers = {
+        "Authorization": f"Bearer {TINYFISH_API_KEY}",
+        "Content-Type": "application/json"
+    }
+
+    response = requests.post(endpoint, json=payload, headers=headers, timeout=20)
+    response.raise_for_status()
+    return response.json()
+
+
+def extract_text_from_tinyfish_response(data):
+    if isinstance(data, dict):
+        for key in ["markdown", "text", "content", "result"]:
+            value = data.get(key)
+            if isinstance(value, str) and value.strip():
+                return value.strip()
+
+        for value in data.values():
+            if isinstance(value, str) and len(value) > 200:
+                return value.strip()
+
+    return str(data)[:MAX_SITE_CHARS]
+
+
+def tinyfish_fetch_text(url):
+    data = tinyfish_post(
+        "https://api.fetch.tinyfish.ai",
+        {"url": url, "format": "markdown"}
+    )
+
+    return extract_text_from_tinyfish_response(data)[:MAX_SITE_CHARS]
+
+
+def fetch_best_website_text(url):
+    try:
+        return tinyfish_fetch_text(url)
+    except Exception as e:
+        print(f"TinyFish fetch failed, using fallback scraper: {e}")
+        return fetch_website_text(url)
+
+
+def extract_search_results(data, limit=3):
+    results = []
+
+    if isinstance(data, dict):
+        possible_lists = []
+
+        for key in ["results", "items", "data"]:
+            value = data.get(key)
+            if isinstance(value, list):
+                possible_lists = value
+                break
+
+        if not possible_lists and isinstance(data.get("result"), list):
+            possible_lists = data.get("result")
+
+        for item in possible_lists[:limit]:
+            if isinstance(item, dict):
+                title = item.get("title") or item.get("name") or "Untitled"
+                url = item.get("url") or item.get("link") or ""
+                snippet = item.get("snippet") or item.get("description") or item.get("text") or ""
+                results.append(f"- {title}\n  {url}\n  {snippet}")
+
+    return "\n".join(results)
+
+
+def tinyfish_search(query, limit=3):
+    data = tinyfish_post(
+        "https://api.search.tinyfish.ai",
+        {"query": query, "limit": limit}
+    )
+
+    return extract_search_results(data, limit=limit)
+
+
+def get_company_hint(url):
+    domain = re.sub(r"^https?://", "", url)
+    domain = domain.split("/")[0]
+    domain = domain.replace("www.", "")
+    return domain.split(".")[0]
+
+
+def research_company(url):
+    company_hint = get_company_hint(url)
+
+    queries = [
+        f"{company_hint} competitors",
+        f"{company_hint} market trends",
+        f"{company_hint} funding news founder"
+    ]
+
+    sections = []
+
+    for query in queries:
+        try:
+            results = tinyfish_search(query, limit=3)
+            if results.strip():
+                sections.append(f"Search query: {query}\n{results}")
+        except Exception as e:
+            print(f"TinyFish search failed for '{query}': {e}")
+
+    if not sections:
+        return "External research unavailable. Continue with website-only analysis."
+
+    external_context = "\n\n".join(sections)
+    return external_context[:MAX_EXTERNAL_CHARS]
 
 def split_message(text, chunk_size=MAX_CHUNK):
     return [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
@@ -92,8 +203,8 @@ async def analyze_url(channel, url):
     thinking = await channel.send(f"Analyzing {url} through the Strategic Investment Council...")
 
     try:
-        site_text = await asyncio.to_thread(fetch_website_text, url)
-
+site_text = await asyncio.to_thread(fetch_best_website_text, url)
+external_context = await asyncio.to_thread(research_company, url)
         prompt = f"""
 Analyze this company based only on the website text below.
 URL:
@@ -101,6 +212,15 @@ URL:
 
 Website text:
 {site_text}
+
+External research:
+{external_context}
+
+Use external research mainly to improve Timing View, Platform View, Skeptic View, and Fredrik Lens.
+
+Clearly distinguish company claims from external signals.
+
+Do not over-weight weak or irrelevant search results.
 
 Before beginning the analysis:
 
