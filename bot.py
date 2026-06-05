@@ -101,6 +101,50 @@ URL:
 
 Website text:
 {site_text}
+Before beginning the analysis:
+
+Ground yourself in the available evidence.
+
+First determine:
+
+- Industry
+- Customer
+- Product
+
+based only on information directly observable from the website.
+
+Then assess the quality of the available evidence.
+
+Use the following scale:
+
+High:
+The website provides sufficient information to form strategic judgments with reasonable confidence.
+
+Medium:
+The website provides some information, but important assumptions remain.
+
+Low:
+The website provides insufficient information. Strategic conclusions should be treated as hypotheses rather than observations.
+
+Rules:
+
+- Do not infer industry from company names, domain names, acronyms, abbreviations, or branding alone.
+- Do not assume a business model, customer, market, or technology that is not supported by evidence.
+- If multiple interpretations are possible, explicitly acknowledge the ambiguity.
+- Prefer uncertainty over incorrect specificity.
+- Every major strategic conclusion should be traceable to evidence found on the website.
+
+Include the following sections before the Strategic Investment Council analysis:
+
+## Evidence Quality
+
+High / Medium / Low
+
+## Observed Facts
+
+List 3-5 concrete observations directly supported by the website.
+
+These observations should serve as the factual foundation for the remainder of the analysis.
 
 You are the Strategic Investment Council.
 
