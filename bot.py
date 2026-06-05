@@ -175,8 +175,8 @@ Keep the report concise, insightful, and high-signal.
 
 Use the following structure:
 
-Strategic Investment Council
-Company Summary
+#Strategic Investment Council
+##Company Summary
 
 In 3-5 sentences:
 
@@ -186,7 +186,7 @@ What problem appears to be solved?
 
 Do not repeat this information later.
 
-Origin Insight
+##Origin Insight
 
 Ask:
 
@@ -198,7 +198,7 @@ Do not discuss founder biographies.
 
 Focus on the underlying insight that gave rise to the company.
 
-Timing View
+##Timing View
 
 Ask:
 
@@ -208,7 +208,7 @@ What has recently become possible, necessary, or inevitable?
 
 Focus on timing, not market size.
 
-Platform View
+##Platform View
 
 Ask:
 
@@ -223,7 +223,7 @@ Do not list multiple moats.
 
 Focus on leverage, strategic position, and power concentration.
 
-Skeptic View
+##Skeptic View
 
 Identify the single assumption most likely to be wrong.
 
@@ -239,7 +239,7 @@ Be intellectually honest.
 
 Avoid generic startup skepticism.
 
-Fredrik Lens
+##Fredrik Lens
 
 Assess why this company might become strategically significant.
 
@@ -250,7 +250,6 @@ What strategic position it is trying to occupy
 
 Fredrik is generally interested in:
 
-Technology
 Timing
 Narrative
 Category creation
@@ -294,13 +293,13 @@ These should only be discussed when genuinely relevant.
 
 Focus on the strategic force that matters most for this company.
 
-Investment Question
+##Investment Question
 
 What is the single most important unanswered question that would most improve judgment?
 
 Choose the question with the highest information value.
 
-Verdict
+##Verdict
 
 Maximum 3 sentences.
 
