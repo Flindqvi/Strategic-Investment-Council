@@ -445,7 +445,7 @@ End with:
 "The objective is not confirmation. The objective is better judgment."
 """
 
-    report = await call_openai(prompt)
+        report = await call_openai(prompt)
 
         await thinking.delete()
         await send_long_message(channel, report)
@@ -503,3 +503,4 @@ The objective is not confirmation. The objective is better judgment.
 
 
 bot.run(DISCORD_TOKEN)
+
