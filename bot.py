@@ -386,6 +386,21 @@ Avoid generic startup skepticism.
 
 Assess why this company might become strategically significant.
 
+Do not assume the company is creating a new category.
+
+First determine whether the company is primarily:
+
+- A Category Participant
+- A Category Improver
+- A Category Consolidator
+- A Category Leader
+- An Infrastructure Layer
+- A Category Creator
+
+Only discuss category creation when there is strong evidence that the company is changing how the market defines the problem itself.
+
+The most strategically important companies are not necessarily category creators. Many become valuable by owning critical workflows, becoming trusted infrastructure, concentrating data, reducing friction, or embedding themselves deeply into existing systems.
+
 Distinguish between:
 
 What the company sells
@@ -415,7 +430,7 @@ What are conventional investors likely to miss?
 What future does this company assume?
 What must become true for this company to matter?
 What game is this company actually playing?
-What belief is the company trying to change?
+What behavior, belief, or assumption is the company trying to change?
 If this company wins, what new idea becomes obvious in hindsight?
 
 Narrative is not marketing.
