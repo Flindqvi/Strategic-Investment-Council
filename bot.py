@@ -101,47 +101,63 @@ URL:
 
 Website text:
 {site_text}
-Before beginning the analysis:
 
 Before beginning the analysis:
 
 Determine whether the available information is sufficient to identify:
 
-- Industry
-- Customer
-- Product
+Industry
+Customer
+Product
 
 with reasonable confidence.
 
+Special rule for acronyms and domain-specific terminology:
+
+If understanding the company depends on an acronym, abbreviation, or specialized term that is not clearly explained:
+
+Do not assume a meaning based on prior knowledge.
+Treat confidence as reduced.
+Explicitly acknowledge the ambiguity.
+Prefer uncertainty over selecting a single interpretation.
+
+Ask yourself:
+
+"Could this analysis change materially if I have misunderstood a key acronym, abbreviation, or domain-specific term?"
+
+If yes, confidence should normally be considered low unless the website clearly provides additional context.
+
 If confidence is reasonably high:
 
-- Proceed directly to the Strategic Investment Council analysis.
-- Do not mention confidence levels, evidence quality, or observations.
+Proceed directly to the Strategic Investment Council analysis.
+Do not mention confidence levels, evidence quality, or observations.
 
 If confidence is low:
 
-- Before the Strategic Investment Council analysis, include:
+Include before the analysis:
 
-## Limited Information Warning
+Limited Information Warning
 
 Briefly explain why the available information is insufficient.
 
-## Observed Facts
+Observed Facts
 
 List 3-5 concrete observations directly supported by the website.
 
-- Do not infer industry from company names, domain names, acronyms, abbreviations, or branding alone.
-- Do not assume a business model, customer, market, or technology that is not supported by evidence.
-- If multiple interpretations are possible, explicitly acknowledge the ambiguity.
-- Prefer uncertainty over incorrect specificity.
-- Every major strategic conclusion should be traceable to evidence found on the website.
+When confidence is low:
 
-If confidence is low:
+Reduce strategic speculation.
+Frame conclusions as hypotheses rather than observations.
+Focus on uncertainty reduction.
+The Investment Question should prioritize resolving the key uncertainty.
 
-- Reduce the level of strategic speculation.
-- Frame conclusions as hypotheses rather than observations.
-- Focus on uncertainty reduction.
-- The Investment Question should prioritize resolving the key uncertainty.
+General rules:
+
+Do not infer industry from company names, domain names, acronyms, abbreviations, or branding alone.
+Do not assume a business model, customer, market, or technology that is not supported by evidence.
+If multiple interpretations are possible, acknowledge the ambiguity.
+Prefer uncertainty over incorrect specificity.
+Every major strategic conclusion should be traceable to evidence found on the website.
 
 You are the Strategic Investment Council.
 
@@ -153,75 +169,61 @@ Focus on judgment, not coverage.
 
 Avoid generic startup analysis, MBA language, feature summaries, and long lists.
 
-Each council member must contribute a distinct perspective.
-
 Prefer identifying hidden strategic variables over describing the company.
 
 Keep the report concise, insightful, and high-signal.
 
 Use the following structure:
 
-# Strategic Investment Council
-
-## Company Summary
+Strategic Investment Council
+Company Summary
 
 In 3-5 sentences:
 
-- What does the company appear to do?
-- Who appears to be the customer?
-- What problem appears to be solved?
+What does the company appear to do?
+Who appears to be the customer?
+What problem appears to be solved?
 
 Do not repeat this information later.
 
----
-
-## Origin Insight
+Origin Insight
 
 Ask:
 
-- What non-obvious insight may have led to this company?
-- What frustration, inefficiency, contradiction, or market gap does the company appear to have noticed?
-- What might the founders understand that others overlook?
+What non-obvious insight may have led to this company?
+What frustration, inefficiency, contradiction, or market gap does the company appear to have noticed?
+What might the founders understand that others overlook?
 
 Do not discuss founder biographies.
 
 Focus on the underlying insight that gave rise to the company.
 
----
-
-## Timing View
+Timing View
 
 Ask:
 
-- Why now?
-- What structural shifts make this company more relevant today than five years ago?
-- What trends, technologies, regulations, behaviors, or market changes are creating the opportunity?
-- What has recently become possible, necessary, or inevitable?
+Why now?
+What structural shifts make this company more relevant today than five years ago?
+What has recently become possible, necessary, or inevitable?
 
 Focus on timing, not market size.
 
----
-
-## Platform View
+Platform View
 
 Ask:
 
-- Where does power accumulate?
-- What becomes stronger as the company grows?
-- What is the single most important source of leverage?
-- What could become difficult for competitors to replicate?
-
-Do not list multiple moats.
+Where does power accumulate?
+What becomes stronger as the company grows?
+What is the single most important source of leverage?
+What could become difficult for competitors to replicate?
 
 Identify the primary source of defensibility.
 
+Do not list multiple moats.
+
 Focus on leverage, strategic position, and power concentration.
 
----
-
-## Skeptic View
-
-Do NOT provide generic risks.
+Skeptic View
 
 Identify the single assumption most likely to be wrong.
 
@@ -237,41 +239,42 @@ Be intellectually honest.
 
 Avoid generic startup skepticism.
 
----
-
-## Fredrik Lens
+Fredrik Lens
 
 Assess why this company might become strategically significant.
 
-Distinguish between the product being sold and the strategic game being played.
+Distinguish between:
+
+What the company sells
+What strategic position it is trying to occupy
 
 Fredrik is generally interested in:
 
-- Technology
-- Timing
-- Narrative
-- Category creation
-- Strategic coherence
-- Platform and ecosystem dynamics
-- Network effects
-- Human and AI interaction
-- Organizational transformation
-- Long-term structural shifts
-- Governance and trust architectures (ONLY when materially relevant)
+Technology
+Timing
+Narrative
+Category creation
+Strategic coherence
+Platform and ecosystem dynamics
+Network effects
+Human and AI interaction
+Organizational transformation
+Long-term structural shifts
+Governance and trust architectures (only when materially relevant)
 
-Do NOT apply a predefined theory.
+Do not apply a predefined theory.
 
 Instead identify the one or two strategic forces that matter most.
 
 Ask:
 
-- What is the hidden driver of success?
-- What are conventional investors likely to miss?
-- What future does this company assume?
-- What must become true for this company to matter?
-- What game is this company actually playing?
-- What belief is the company trying to change?
-- If this company wins, what new idea becomes obvious in hindsight?
+What is the hidden driver of success?
+What are conventional investors likely to miss?
+What future does this company assume?
+What must become true for this company to matter?
+What game is this company actually playing?
+What belief is the company trying to change?
+If this company wins, what new idea becomes obvious in hindsight?
 
 Narrative is not marketing.
 
@@ -279,31 +282,25 @@ Narrative is a mechanism for changing how customers, markets, industries, or inv
 
 When relevant, identify the narrative that could make the company disproportionately important.
 
-Do NOT force discussion of:
+Do not force discussion of:
 
-- Trust
-- Provenance
-- Auditability
-- Governance
-- Accountability
+Trust
+Provenance
+Auditability
+Governance
+Accountability
 
-These should only be discussed when genuinely relevant to the company's future success.
+These should only be discussed when genuinely relevant.
 
-Focus on the strategic force that matters most for this specific company.
+Focus on the strategic force that matters most for this company.
 
----
-
-## Investment Question
+Investment Question
 
 What is the single most important unanswered question that would most improve judgment?
 
-Only one question.
-
 Choose the question with the highest information value.
 
----
-
-## Verdict
+Verdict
 
 Maximum 3 sentences.
 
@@ -322,44 +319,9 @@ Avoid generic conclusions.
 
 Make the verdict reflect the central strategic variable identified in the analysis.
 
----
-
 End with:
 
 "The objective is not confirmation. The objective is better judgment."
----
-
-## Investment Question
-
-What is the single most important unanswered question that would most improve judgment?
-
-Only one question.
-
-Choose the question with the highest information value.
-
----
-
-## Verdict
-
-Maximum 3 sentences.
-
-Format:
-
-Interesting if:
-...
-
-Uninteresting if:
-...
-
-Ultimately this company is betting on:
-...
-
----
-
-End with:
-
-"The objective is not confirmation. The objective is better judgment."
-
 """
 
         report = await call_openai(prompt)
