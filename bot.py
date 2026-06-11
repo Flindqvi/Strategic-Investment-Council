@@ -25,6 +25,9 @@ MODEL = "gpt-4.1-mini"
 MAX_CHUNK = 1800
 MAX_SITE_CHARS = 12000
 MAX_EXTERNAL_CHARS = 6000
+LAST_ANALYZED_URL = None
+LAST_ANALYSIS_REPORT = None
+
 
 def extract_url(text):
     match = re.search(r"https?://\S+", text)
@@ -483,12 +486,102 @@ End with:
 
         report = await call_openai(prompt)
 
+        global LAST_ANALYZED_URL, LAST_ANALYSIS_REPORT
+        LAST_ANALYZED_URL = url
+        LAST_ANALYSIS_REPORT = report
+
         await thinking.delete()
         await send_long_message(channel, report)
 
     except Exception as e:
         await thinking.delete()
         await channel.send(f"Could not analyze the URL. Error: {str(e)}")
+
+async def investment_manager(channel, url=None):
+    global LAST_ANALYZED_URL, LAST_ANALYSIS_REPORT
+
+    if not url:
+        url = LAST_ANALYZED_URL
+
+    if not url:
+        await channel.send("I need a company URL first. Try: Analyze https://company.com")
+        return
+
+    thinking = await channel.send(f"Running Investment Manager on {url}...")
+
+    try:
+        site_text = await asyncio.to_thread(fetch_best_website_text, url)
+        external_context = await asyncio.to_thread(research_company, url)
+
+        previous_analysis = LAST_ANALYSIS_REPORT or "No prior council analysis available."
+
+        prompt = f"""
+You are the Investment Manager of the Strategic Investment Council.
+
+The user has asked to go deeper from an investor perspective.
+
+This is NOT financial advice.
+This is a structured investment screening view to help decide whether to spend more diligence time.
+
+URL:
+{url}
+
+Previous Council Analysis:
+{previous_analysis}
+
+Website text:
+{site_text}
+
+External research:
+{external_context}
+
+Use the available information to produce a concise investor-oriented report.
+
+# Investment Manager
+
+## Competitive Position
+Who else may compete with this company?
+What position does the company appear to occupy?
+What would make it difficult to beat?
+
+## Distribution
+How does the company likely reach customers?
+Is distribution likely to be product-led, sales-led, partner-led, community-led, or enterprise-led?
+What is the biggest distribution risk?
+
+## Market Position
+Is this company a category participant, category challenger, category creator, infrastructure layer, or niche tool?
+What position would it need to own to become investable?
+
+## Execution Risk
+Identify the single execution risk most likely to determine success or failure.
+Avoid generic startup risks.
+
+## Investment Recommendation
+Choose one:
+
+PASS
+WATCH
+INVESTIGATE
+HIGH PRIORITY
+
+Explain why in 3-5 sentences.
+
+## Follow-up Questions
+Ask the 3 highest-value diligence questions that would most improve judgment.
+
+End with:
+"The objective is not confirmation. The objective is better judgment."
+"""
+
+        report = await call_openai(prompt, max_tokens=1500)
+
+        await thinking.delete()
+        await send_long_message(channel, report)
+
+    except Exception as e:
+        await thinking.delete()
+        await channel.send(f"Could not run Investment Manager. Error: {str(e)}")
 
 
 @bot.event
@@ -503,6 +596,24 @@ async def on_message(message):
 
     content = message.content.strip()
     lower = content.lower()
+
+    invest_triggers = [
+        "/invest",
+        "investment advice",
+        "investor view",
+        "should we invest",
+        "worth pursuing",
+        "dig deeper",
+        "go deeper",
+        "know more",
+        "want to know more",
+        "worth spending time"
+    ]
+
+    if any(trigger in lower for trigger in invest_triggers):
+        url = extract_url(content)
+        await investment_manager(message.channel, url)
+        return
 
     if lower.startswith("analyze "):
         url = extract_url(content)
