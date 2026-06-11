@@ -489,6 +489,7 @@ End with:
         global LAST_ANALYZED_URL, LAST_ANALYSIS_REPORT
         LAST_ANALYZED_URL = url
         LAST_ANALYSIS_REPORT = report
+        print(f"Saved last analyzed URL: {LAST_ANALYZED_URL}")
 
         await thinking.delete()
         await send_long_message(channel, report)
